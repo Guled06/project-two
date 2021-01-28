@@ -1,4 +1,6 @@
-# Sequelize Passport Example
+# The Brew Budz
+
+## Sequelize Passport Example
 
 Use this as a starter for Project 2. Includes configuration for Travis CI, and ESLint. Provides a example login, signup and user pages which should be replaced with implementation for your app. Be sure to read the instructions below for deployment on Heroku and running the app locally.
 
