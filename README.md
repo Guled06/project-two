@@ -1,4 +1,5 @@
 # The Brew Budz
+## "It takes a village to finish a cup." -Guled
 
 ## Sequelize Passport Example
 
