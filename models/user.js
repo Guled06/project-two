@@ -19,10 +19,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-// ============================================================================================================================================================
-// code that hanndles many-to-many association
+  // ============================================================================================================================================================
+  // code that hanndles many-to-many association
 
-// adding assoctiation with other model, allowing many-to-many, through a junction table
+  // adding assoctiation with other model, allowing many-to-many, through a junction table
   User.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
@@ -33,10 +33,8 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-
-
-// ============================================================================================================================================================
-// code involving the creating a user session & verfiying password matches
+  // ============================================================================================================================================================
+  // code involving the creating a user session & verfiying password matches
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
