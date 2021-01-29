@@ -1,8 +1,19 @@
 # The Brew Budz
-## "It takes a village to finish a cup." -Guled
-## "Many hands make light work- after all, these kegs aren't going to tip over and pour themselves." -Anzel 
-## ROMAN BEER QUOTE
-## SHANE BEER QUOTE
+### "It takes a village to finish a cup." -Guled
+### "Many hands make light work- after all, these kegs aren't going to tip over and pour themselves." -Anzel 
+### ROMAN BEER QUOTE
+### Beer Street 
+#### "Beer, happy Product of our Isle 
+#### can sinewy Strength impart, 
+#### And wearied with Fatigue and Toil can chear each manly heart.
+#### "Labour and Art upheld by Thee 
+#### Successfully advance, 
+#### We quaff Thy balmy Juice with Glee
+#### And Water leave to France.
+#### Genius of Health, thy grateful Taste
+#### Rivals the Cup of Jove, 
+#### And warms each English generous Breast
+#### With Liberty and Love."
 
 ## Sequelize Passport Example
 
