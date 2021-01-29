@@ -2,3 +2,11 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.jumbotron {
+  background-image: url("public/images/BrewLogoSolo.PNG");
+  background-size: cover;
+  min-height: 300px;
+  text-align: center;
+  text-shadow: 2px 2px lightslategray;
+};
