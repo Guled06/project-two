@@ -3,21 +3,21 @@ module.exports = function(sequelize, DataTypes) {
   const Favorite = sequelize.define("Favorite", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
 
-      validate: {
-        len: [1]
-      }
+      // validate: {
+      //   len: [1]
+      // }
     },
 
     location: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
+      // allowNull: false
     },
 
     phone: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
+      // allowNull: false
     },
 
     latitude: {

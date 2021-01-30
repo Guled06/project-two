@@ -1,8 +1,9 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const favorite = require("../models/favorite");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -49,5 +50,32 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  // app.post("api/favoritesrch", (req, res) => {
+  //   db.user_favorite.findAll({
+  //     where:{
+  // user_id: req.user.id,
+  // favorite_id: req.body.name
+  //     }
+  //   })
+  // })
+  // ^^^ rough draft on how to locate row in association for 
+
+  app.post("/api/favorite", (req, res) => {
+    db.Favorite.create({
+      name: req.body.name,
+      location: req.body.location,
+      phone: req.body.phone,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
+    })
+      .then(() => {
+        res.end("added brewery to favorites!");
+      })
+      .catch(err => {
+        res.status(401).json(err);
+        // ^^^ don't know if this is the correct status code
+      });
   });
 };
