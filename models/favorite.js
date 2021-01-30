@@ -1,4 +1,4 @@
-// Creating our User model
+// Creating our Favorite model
 module.exports = function(sequelize, DataTypes) {
   const Favorite = sequelize.define("Favorite", {
     name: {
@@ -34,12 +34,14 @@ module.exports = function(sequelize, DataTypes) {
 
   // adding assoctiation with other model, allowing many-to-many, through a junction table
   Favorite.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
+    // Associating Favorite with User
+    // When an Favorite is seleted, also delete any associated User
     Favorite.belongsToMany(models.User, {
       through: "user_favorite",
       as: "user",
       foreignKey: "user_id"
     });
   };
+
+  return Favorite;
 };
