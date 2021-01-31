@@ -41,6 +41,5 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: "favorite_id"
     });
   };
-
   return Favorite;
 };
