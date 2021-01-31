@@ -16,11 +16,11 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     phone: {
-      type: DataTypes.INTEGER
+      type: DataTypes.BIGINT
       // allowNull: false
     },
 
-    latitude: {
+    longitude: {
       type: DataTypes.INTEGER
     },
 
@@ -37,9 +37,8 @@ module.exports = function(sequelize, DataTypes) {
     // Associating Favorite with User
     // When an Favorite is seleted, also delete any associated User
     Favorite.belongsToMany(models.User, {
-      through: "user_favorite",
-      as: "user",
-      foreignKey: "user_id"
+      through: "UserFavorite",
+      foreignKey: "favorite_id"
     });
   };
 

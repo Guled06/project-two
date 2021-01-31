@@ -1,9 +1,9 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-const favorite = require("../models/favorite");
+// const favorite = require("../models/favorite");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -52,17 +52,11 @@ module.exports = function (app) {
     }
   });
 
-  // app.post("api/favoritesrch", (req, res) => {
-  //   db.user_favorite.findAll({
-  //     where:{
-  // user_id: req.user.id,
-  // favorite_id: req.body.name
-  //     }
-  //   })
-  // })
-  // ^^^ rough draft on how to locate row in association for 
-
   app.post("/api/favorite", (req, res) => {
+    // check if exists in database before creating!
+    // if it does, use that id
+    // if not, creat a new one, then use that one
+    console.log(req.body);
     db.Favorite.create({
       name: req.body.name,
       location: req.body.location,
@@ -77,5 +71,32 @@ module.exports = function (app) {
         res.status(401).json(err);
         // ^^^ don't know if this is the correct status code
       });
+  });
+
+  // hook up to favorite button press! will need to add a condition for if they're logged in
+  app.post("/api/user_favorite", (req, res) => {
+    console.log(req.body);
+    db.UserFavorite.create({
+      favorite_id: req.body.favorite_id,    // eslint-disable-line
+      //   // user_id: req.user.id           //what we'll use once integrated with front-end
+      user_id: req.body.user_id       // eslint-disable-line
+    }).then(() => {
+      res.end("added favorite to profile");
+    });
+  });
+  // ^^^ end of test
+  // =========================================================
+  app.post("/api/user_favorite/view", (req, res) => {
+    db.User.findAll({
+      attributes: ["id", "email", "createdAt", "updatedAt"],
+      where: {
+        // id: req.user.id   // what we'll use once integrated with front-end
+        id: req.body.id
+      },
+      include: db.Favorite
+    }).then(data => {
+      delete data[0].password;
+      res.json(data);
+    });
   });
 };
