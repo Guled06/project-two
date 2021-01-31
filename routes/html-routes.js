@@ -15,19 +15,19 @@ module.exports = function(app) {
     if (req.user) {
       return res.redirect("/my-profile");
     }
-    res.render("login");
+    res.render("login", { layout: false });
   });
 
   app.get("/signup", (req, res) => {
-    return res.render("signup", {});
+    return res.render("signup", { layout: false });
   });
 
   app.get("/index", (req, res) => {
     return res.render("index", {});
   });
 
-  app.get("/layouts/main", (req, res) => {
-    return res.render("main", {});
+  app.get("/main", (req, res) => {
+    return res.render("index", {});
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -37,6 +37,6 @@ module.exports = function(app) {
   });
 
   app.get("*", (req, res) => {
-    return res.render("landing", {});
+    return res.redirect("/landing");
   });
 };
