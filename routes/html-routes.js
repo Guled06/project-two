@@ -7,7 +7,7 @@ module.exports = function(app) {
     if (req.user) {
       return res.redirect("/my-profile");
     }
-    res.render("landing");
+    res.render("landing", { layout: false });
   });
 
   app.get("/login", (req, res) => {
@@ -18,11 +18,15 @@ module.exports = function(app) {
     res.render("login");
   });
 
+  app.get("/signup", (req, res) => {
+    return res.render("signup", {});
+  });
+
   app.get("/index", (req, res) => {
     return res.render("index", {});
   });
 
-  app.get("/main", (req, res) => {
+  app.get("/layouts/main", (req, res) => {
     return res.render("main", {});
   });
 

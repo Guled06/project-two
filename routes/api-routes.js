@@ -50,4 +50,60 @@ module.exports = function(app) {
       });
     }
   });
+  // Route that gets all favorites from database
+  // need to amend to ensure it works on a per user basis
+  //---------------------------------------------------
+  // TEST WORK
+  //---------------------------------------------------
+  app.post("/api/favorites", (req, res) => {
+    if (req.user) {
+      db.Favorite.findOrCreate({
+        where: {
+          name: req.body.name,
+          location: req.body.location,
+          phone: req.body.phone,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
+        }
+      }).then(data => {
+        res.json(data);
+      });
+    }
+  });
+
+  app.get("/api/favorites", (req, res) => {
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.user_favorite
+        .findAll({
+          where: {
+            id: req.user.id
+          }
+        })
+        .then(newFav => {
+          res.json(newFav);
+        });
+    }
+  });
+
+  // app.get("/api/my-profile", (req, res) => {
+  //   if (!req.user) {
+  //     res.json({});
+  //   } else {
+  //     db.Favorite.findAll({
+  //       where: {
+  //         user_id: req.body.user_id
+  //       }
+  //     }).then(newFav => {
+  //       res.json(newFav);
+  //     });
+  //   }
+  // });
+
+  // app.get("/api/favorites", (req, res) => {
+  //   db.Favorite.findAll({}).then((newFav) => {
+  //     res.json(newFav);
+  //   });
+  // });
 };

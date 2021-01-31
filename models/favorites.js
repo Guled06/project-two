@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },
 
-    latitude: {
+    longitude: {
       type: DataTypes.INTEGER
     }
   });
@@ -36,10 +36,14 @@ module.exports = function(sequelize, DataTypes) {
   Favorite.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
+
+    // Favorite.hasMany(models.user_favorite)
+    // delete "through", "as", foreignKey
     Favorite.belongsToMany(models.User, {
       through: "user_favorite",
       as: "user",
       foreignKey: "user_id"
     });
   };
+  return Favorite;
 };

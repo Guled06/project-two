@@ -26,6 +26,10 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
+
+    // User.hasMany(models.user_favorite)
+    // possible to delete .belongsToMany
+
     User.belongsToMany(models.Favorite, {
       through: "user_favorite",
       as: "favorite",
