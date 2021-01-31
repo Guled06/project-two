@@ -24,11 +24,8 @@ module.exports = function(sequelize, DataTypes) {
 
   // adding assoctiation with other model, allowing many-to-many, through a junction table
   User.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     User.belongsToMany(models.Favorite, {
-      through: "user_favorite",
-      as: "favorite",
+      through: "UserFavorite",
       foreignKey: "user_id"
     });
   };
