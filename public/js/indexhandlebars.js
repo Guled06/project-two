@@ -13,9 +13,8 @@ function breweryInfo() {
 
     for (let i = 0; i < response.length; i++) {
       $brewerylist.append(`<h1> ${response[i].name} <button
-          class="favorites"
           type="button"
-          class="btn btn-warning"
+          class="btn btn-dark favorites"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,12 +29,12 @@ function breweryInfo() {
             />
           </svg>
         </button></h1>
-          <h4>Address: ${response[i].street}</h4>
+          <h4>Address: <a href="https://www.google.com/maps/place/${response[i].name} /@${response[i].latitude} ,${response[i].longitude}/"> ${response[i].street}</a></h4>
           <h4>City: ${response[i].city}</h4>
           <h4> State: ${response[i].state}</h4>
           <h4>Phone: <a href="tel:+${response[i].phone}"> ${response[i].phone}</a></h4>
           <h4>Website: <a href="${response[i].website_url}"> ${response[i].website_url}</a></h4>
-          <hr>`);
+          <hr />`);
     }
   });
 }

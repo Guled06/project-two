@@ -11,10 +11,10 @@
 </nav>
 <div class="jumbotron indexjumbo">
     <h1 class="display-4 text-warning jumbotext">The Brew Budz</h1>
-    <p class="lead jumbotext">"It takes a village to finish a cup." -Guled</p>
+    <p class="lead jumbotext">"It takes a village to finish a cup." - Guled</p>
     <hr class="my-4">
-    <form class="jumboform jumbotext">
-        <input class="jumbofrom" type="text" placeholder="Search for a brewery" name="search">
+    <form class="jumboform jumbotext" id="form-search">
+        <input id="brewery-search" class="jumbofrom" type="text" placeholder="Search for a brewery" name="search">
         <button type="submit" class="btn btn-sm btn-warning my-2 my-sm-0">
             Search
         </button>
@@ -24,7 +24,7 @@
 <span class="container">
     <div class="row">
         <div class="col md-8">
-            <div class="card">
+            <div class="card" id="index-card">
                 <div class="card-header">
                     <div class="card-body text-center" id="brewery-results"></div>
                 </div>
@@ -34,3 +34,4 @@
 </span>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/indexhandlebars.js"></script>
+
