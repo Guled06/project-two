@@ -1,23 +1,26 @@
-function breweryInfo() {
-  const queryURL = "https://api.openbrewerydb.org/breweries/search?query=";
+$(document).ready(() => {
+  let renderArr;
+  function breweryInfo() {
+    const queryURL = "https://api.openbrewerydb.org/breweries/search?query=";
 
-  const input = $("input[name=search]").val();
+    const input = $("input[name=search]").val();
 
-  $.ajax({
-    url: queryURL + input,
-    method: "GET"
-  }).then(response => {
-    console.log(response);
+    $.ajax({
+      url: queryURL + input,
+      method: "GET"
+    }).then(response => {
+      console.log(response);
 
-    const $brewerylist = $("#brewery-results");
-    const breweries = response.filter(row => row.city === "San Diego");
-
-    for (let i = 0; i < breweries.length; i++) {
-      $brewerylist.append(`<h1> ${breweries[i].name} <button
+      const $brewerylist = $("#brewery-results");
+      const breweries = response.filter(row => row.city === "San Diego");
+      renderArr = breweries;
+      for (let i = 0; i < breweries.length; i++) {
+        $brewerylist.append(`<h1> ${breweries[i].name} <button
 
 
           type="button"
           class="btn btn-dark favorites"
+          value="${i}"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +42,34 @@ function breweryInfo() {
           <h4>Phone: <a href="tel:+${breweries[i].phone}"> ${breweries[i].phone}</a></h4>
           <h4>Website: <a href="${breweries[i].website_url}"> ${breweries[i].website_url}</a></h4>
           <hr>`);
-    }
-  });
-}
+      }
+    });
+  }
 
-$("form#form-search").on("submit", event => {
-  event.preventDefault();
-  $("#brewery-results").empty();
-  breweryInfo();
+  $("#brewery-results").on("click", ".favorites", function() {
+    const selId = $(this).val();
+
+    const name = renderArr[selId].name;
+    const loc = renderArr[selId].street;
+    const phone = renderArr[selId].phone;
+    const website = renderArr[selId].website_url;
+
+    $.ajax({
+      url: "/api/favorites",
+      method: "POST",
+      data: { name: name, location: loc, phone: phone, website: website }
+    })
+      .then(data => {
+        console.log(data);
+      })
+      .fail(err => {
+        console.log(err);
+      });
+  });
+
+  $("form#form-search").on("submit", event => {
+    event.preventDefault();
+    $("#brewery-results").empty();
+    breweryInfo();
+  });
 });

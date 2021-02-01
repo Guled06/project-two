@@ -16,7 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     phone: {
-      type: DataTypes.BIGINT
+      type: DataTypes.STRING
+      // allowNull: false
+    },
+
+    website: {
+      type: DataTypes.STRING
       // allowNull: false
     },
 
