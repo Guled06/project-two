@@ -159,14 +159,14 @@ module.exports = function(app) {
   // app.destroy TEST WORK
   // ===============================
   app.delete("api/favorites:id", (req, res) => {
-    db.user_favorite
-      .destroy({
-        where: {
-          id: req.params.id // params could be user input via submit button, correct?
-        }
-      })
-      .then(newFav => {
-        res.json(newFav);
-      });
+    db.UserFavorite.destroy({
+      where: {
+        favorite_id: req.params.id, // eslint-disable-line 
+        // params could be user input via submit button, correct?
+        user_id: req.user.id // eslint-disable-line
+      }
+    }).then(newFav => {
+      res.json(newFav);
+    });
   });
 };
