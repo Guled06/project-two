@@ -12,7 +12,6 @@ function breweryInfo() {
     const $brewerylist = $("#brewery-results");
     const breweries = response.filter(row => row.city === "San Diego");
 
-
     for (let i = 0; i < breweries.length; i++) {
       $brewerylist.append(`<h1> ${breweries[i].name} <button
 
@@ -40,7 +39,6 @@ function breweryInfo() {
           <h4>Phone: <a href="tel:+${breweries[i].phone}"> ${breweries[i].phone}</a></h4>
           <h4>Website: <a href="${breweries[i].website_url}"> ${breweries[i].website_url}</a></h4>
           <hr>`);
-          
     }
   });
 }
