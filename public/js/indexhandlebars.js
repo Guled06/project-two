@@ -1,5 +1,6 @@
 function breweryInfo() {
   const queryURL = "https://api.openbrewerydb.org/breweries?by_city=san_diego";
+
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -27,12 +28,24 @@ function breweryInfo() {
             />
           </svg>
         </button></h1>
-          <h4>Address: ${response[i].street}</h4>
+          <h4>Address: <a href="https://www.google.com/maps/place/${response[i].name} /@${response[i].latitude} ,${response[i].longitude}/"> ${response[i].street}</a></h4>
           <h4>Phone: <a href="tel:+${response[i].phone}"> ${response[i].phone}</a></h4>
           <h4>Website: <a href="${response[i].website_url}"> ${response[i].website_url}</a></h4>
-          <hr>`);
+          <hr />`);
     }
   });
 }
+
+$(".favorites").on("submit", event => {
+  event.preventDefault();
+
+  const info = "my-profile.handlebars";
+
+  info.append(`<h4> ${response[i].name}</h4>
+  <h4>Address: <a href="https://www.google.com/maps/place/${response[i].name} /@${response[i].latitude} ,${response[i].longitude}/"> ${response[i].street}</a></h4>
+  <h4>Phone: <a href="tel:+${response[i].phone}"> ${response[i].phone}</a></h4>
+  <h4>Website: <a href="${response[i].website_url}"> ${response[i].website_url}</a></h4>
+  <hr />`);
+});
 
 breweryInfo();
