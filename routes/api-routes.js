@@ -107,16 +107,15 @@ module.exports = function(app) {
 
   // ^^^ end of test
   // =========================================================
-  app.post("/api/user_favorite/view", (req, res) => {
+  app.get("/api/user_favorite/view", (req, res) => {
     db.User.findAll({
       attributes: ["id", "email", "createdAt", "updatedAt"],
       where: {
         // id: req.user.id   // what we'll use once integrated with front-end
-        id: req.body.id
+        id: req.user.id
       },
       include: db.Favorite
     }).then(data => {
-      delete data[0].password;
       res.json(data);
     });
   });
