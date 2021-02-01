@@ -20,12 +20,15 @@
   background-repeat: no-repeat;
 }
 
-.nav-item {
+.lead {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nav-item, 
+.nav {
   padding-left: 5px;
   padding-right: 5px;
 }
-
-
 
 @keyframes fadeInUp {
   from { 
@@ -40,8 +43,71 @@
     transform: none;
   }
 }
-  .jumbotext {
+
+.jumbotext {
       /* animation-delay: 1s; */
       opacity: 0; 
       animation: fadeInUp 2s ease-in-out 0s forwards;
-  };
+}
+
+#signup-container{
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+#footer {
+  margin-top: 100px;
+}
+
+body {
+    background-color: rgb(31, 30, 30);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+h2 {
+    color: white;
+}
+
+#email-input,
+#password-input {
+  font-size: xx-large;
+  background-color:rgb(255, 196, 0);
+}
+
+.log-in-here {
+  font-size: xx-large;
+  color: white;
+}
+
+.Or {
+  font-size: xx-large;
+  color: white;
+}
+
+#signup-btn {
+  font-size: xx-large;
+  background-color: white;
+  color: black;
+}
+
+a:link {
+
+  text-decoration: none;
+}
+
+#brewery-results {
+  background-color: rgb(255, 196, 0);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#index-card {
+  background-color: lightslategray;
+}
+
+#brewery-search {
+  background: rgb(21, 22, 22);
+  color: rgb(255, 196, 0);
+}
