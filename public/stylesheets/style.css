@@ -1,3 +1,20 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-bottom: 75px;
+  background-color: rgb(31, 30, 30);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+h2 {
+  color: white;
+}
+
 .indexjumbo {
   background-image: url("/images/1.GIF");
   background-size: cover;
@@ -21,17 +38,73 @@
 }
 
 .lead {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.nav-item, 
+.nav-item,
 .nav {
   padding-left: 5px;
   padding-right: 5px;
 }
 
+.jumbotext {
+  opacity: 0;
+  animation: fadeInUp 2s ease-in-out 0s forwards;
+}
+
+.log-in-here {
+  color: white;
+}
+
+.Or {
+  color: white;
+}
+
+#signup-container {
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+#email-input,
+#password-input {
+  background-color: rgb(255, 196, 0);
+}
+
+#signup-btn {
+  background-color: white;
+  color: black;
+}
+
+#brewery-results {
+  background-color: rgb(255, 196, 0);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+#index-card {
+  background-color: lightslategray;
+}
+
+#brewery-search {
+  background: rgb(21, 22, 22);
+  color: rgb(255, 196, 0);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
 @keyframes fadeInUp {
-  from { 
+  from {
     opacity: 0;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
@@ -44,63 +117,16 @@
   }
 }
 
-.jumbotext {
-      opacity: 0; 
-      animation: fadeInUp 2s ease-in-out 0s forwards;
-}
-
-#footer {
-    margin-top: 200px;
-}
-
-body {
-    background-color: rgb(31, 30, 30);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
-
-h2 {
-    color: white;
-}
-
-#email-input,
-#password-input {
-  font-size: xx-large;
-  background-color:rgb(255, 196, 0);
-}
-
-.log-in-here {
-  font-size: xx-large;
-  color: white;
-}
-
-.Or {
-  font-size: xx-large;
-  color: white;
-}
-
-#signup-btn {
-  font-size: xx-large;
-  background-color: white;
-  color: black;
-}
-
-a:link {
-
-  text-decoration: none;
-}
-
-#brewery-results {
-  background-color: rgb(255, 196, 0);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-#index-card {
-  background-color: lightslategray;
-}
-
-#brewery-search {
-  background: rgb(21, 22, 22);
-  color: rgb(255, 196, 0);
+@media screen and (max-width: 200px) {
+  #footer {
+    position: relative;
+    top: auto;
+    left: auto;
+    height: auto;
+  }
+  #signup-container {
+    position: relative;
+    top: 20%;
+    left: 20%;
+  }
 }
