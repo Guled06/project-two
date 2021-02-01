@@ -162,7 +162,7 @@ module.exports = function(app) {
     db.user_favorite
       .destroy({
         where: {
-          id: req.params.id
+          id: req.params.id // params could be user input via submit button, correct?
         }
       })
       .then(newFav => {
