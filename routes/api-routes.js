@@ -88,26 +88,6 @@ module.exports = function(app) {
     }
   });
 
-  // app.get("/api/my-profile", (req, res) => {
-  //   if (!req.user) {
-  //     res.json({});
-  //   } else {
-  //     db.Favorite.findAll({
-  //       where: {
-  //         user_id: req.body.user_id
-  //       }
-  //     }).then(newFav => {
-  //       res.json(newFav);
-  //     });
-  //   }
-  // });
-
-  // app.get("/api/favorites", (req, res) => {
-  //   db.Favorite.findAll({}).then((newFav) => {
-  //     res.json(newFav);
-  //   });
-  // });
-
   app.post("/api/favorite", (req, res) => {
     // check if exists in database before creating!
     // if it does, use that id
