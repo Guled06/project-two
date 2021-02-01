@@ -88,26 +88,6 @@ module.exports = function(app) {
     }
   });
 
-  // app.get("/api/my-profile", (req, res) => {
-  //   if (!req.user) {
-  //     res.json({});
-  //   } else {
-  //     db.Favorite.findAll({
-  //       where: {
-  //         user_id: req.body.user_id
-  //       }
-  //     }).then(newFav => {
-  //       res.json(newFav);
-  //     });
-  //   }
-  // });
-
-  // app.get("/api/favorites", (req, res) => {
-  //   db.Favorite.findAll({}).then((newFav) => {
-  //     res.json(newFav);
-  //   });
-  // });
-
   app.post("/api/favorite", (req, res) => {
     // check if exists in database before creating!
     // if it does, use that id
@@ -159,14 +139,14 @@ module.exports = function(app) {
   // app.destroy TEST WORK
   // ===============================
   app.delete("api/favorites:id", (req, res) => {
-    db.user_favorite
-      .destroy({
-        where: {
-          id: req.params.id // params could be user input via submit button, correct?
-        }
-      })
-      .then(newFav => {
-        res.json(newFav);
-      });
+    db.UserFavorite.destroy({
+      where: {
+        favorite_id: req.params.id, // eslint-disable-line 
+        // params could be user input via submit button, correct?
+        user_id: req.user.id // eslint-disable-line
+      }
+    }).then(newFav => {
+      res.json(newFav);
+    });
   });
 };
