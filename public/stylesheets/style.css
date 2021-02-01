@@ -1,5 +1,5 @@
 .indexjumbo {
-  background-image: url("/images/jumbobackground.jpg");
+  background-image: url("/images/1.GIF");
   background-size: cover;
   min-height: 350px;
   text-align: center;
@@ -45,19 +45,12 @@
 }
 
 .jumbotext {
-      /* animation-delay: 1s; */
       opacity: 0; 
       animation: fadeInUp 2s ease-in-out 0s forwards;
 }
 
-#signup-container{
-  text-align: center;
-  margin-top: 100px;
-  margin-left: 300px;
-}
-
 #footer {
-  margin-top: 100px;
+    margin-top: 200px;
 }
 
 body {
