@@ -105,26 +105,6 @@ module.exports = function(app) {
     }
   });
 
-  // app.get("/api/my-profile", (req, res) => {
-  //   if (!req.user) {
-  //     res.json({});
-  //   } else {
-  //     db.Favorite.findAll({
-  //       where: {
-  //         user_id: req.body.user_id
-  //       }
-  //     }).then(newFav => {
-  //       res.json(newFav);
-  //     });
-  //   }
-  // });
-
-  // app.get("/api/favorites", (req, res) => {
-  //   db.Favorite.findAll({}).then((newFav) => {
-  //     res.json(newFav);
-  //   });
-  // });
-
   // ^^^ end of test
   // =========================================================
   app.post("/api/user_favorite/view", (req, res) => {
@@ -138,6 +118,20 @@ module.exports = function(app) {
     }).then(data => {
       delete data[0].password;
       res.json(data);
+    });
+  });
+
+  // app.destroy TEST WORK
+  // ===============================
+  app.delete("api/favorites:id", (req, res) => {
+    db.UserFavorite.destroy({
+      where: {
+        favorite_id: req.params.id, // eslint-disable-line 
+        // params could be user input via submit button, correct?
+        user_id: req.user.id // eslint-disable-line
+      }
+    }).then(newFav => {
+      res.json(newFav);
     });
   });
 };

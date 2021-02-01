@@ -1,20 +1,51 @@
 <!-- THIS IS WHERE FAVORITES WILL BE DISPLAYED -->
-
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/logout">
-      Logout
+<nav class="navbar navbar-light bg-warning">
+    <a class="navbar-brand" href="/index">
+        <img src="/images/BrewLogoSolo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        The Brew Budz
     </a>
-  </div>
-</div>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link btn-dark" href="/index">Search Breweries</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn-dark" href="/logout">Log out</a>
+        </li>
+    </ul>
 </nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Welcome <span class="member-name">{{ email }}</span></h2>
+
+<div class="jumbotron jumbotron-fluid myprofilejumbo">
+    <div class="container">
+        <h1 class="display-4 jumbotext">Welcome</h1>
+        <h1 class="display-4 jumbotext">{{ email }}</h1>
+        <hr class="my-4">
+        <a class="btn btn-warning jumbotext" href="/index">Search Breweries</a>
     </div>
-  </div>
 </div>
+
+<h3 class="text-warning text-center">Your Favorite Breweries:</h3>
+
+<span class="container">
+    <div class="row">
+        <div class="col md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-body text-center" id="favorite-breweries">
+
+                        <span>
+                            <p>
+                                No Favorites Yet!
+                            </p>
+                            <p>
+                                <a class="btn-light text-warning" href="/index">Add A Favorite!</a>
+                            </p>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
