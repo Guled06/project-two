@@ -155,4 +155,18 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  // app.destroy TEST WORK
+  // ===============================
+  app.delete("api/favorites:id", (req, res) => {
+    db.user_favorite
+      .destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(newFav => {
+        res.json(newFav);
+      });
+  });
 };

@@ -6,7 +6,7 @@
 #### "Beer, happy Product of our Isle 
 #### can sinewy Strength impart, 
 #### And wearied with Fatigue and Toil can chear each manly heart.
-#### "Labour and Art upheld by Thee 
+#### Labour and Art upheld by Thee 
 #### Successfully advance, 
 #### We quaff Thy balmy Juice with Glee
 #### And Water leave to France.
