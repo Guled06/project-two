@@ -1,34 +1,36 @@
-<style>
-    #card-header {
-        color: rgb(31, 30, 30);
-        background: rgb(255, 196, 0);
-    }
+<nav class="navbar navbar-light bg-warning">
+    <a class="navbar-brand" href="/index">
+        <img src="/images/BrewLogoSolo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        The Brew Budz
+    </a>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link btn-dark" href="/my-profile">My Account</a>
+        </li>
+    </ul>
+</nav>
+<div class="jumbotron indexjumbo">
+    <h1 class="display-4 text-warning jumbotext">The Brew Budz</h1>
+    <p class="lead jumbotext">"It takes a village to finish a cup." -Guled</p>
+    <hr class="my-4">
+    <form class="jumboform jumbotext">
+        <input class="jumbofrom" type="text" placeholder="Search for a brewery" name="search">
+        <button type="submit" class="btn btn-sm btn-warning my-2 my-sm-0">
+            Search
+        </button>
+    </form>
+</div>
 
-    .favorites {
-        background: rgb(31, 30, 30);
-    }
-
-    .bi-star {
-        color: rgb(255, 196, 0);
-    }
-
-    h1, h4 {
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
-</style>
-
-<div class="container">
+<span class="container">
     <div class="row">
         <div class="col md-8">
             <div class="card">
-                <div class="card-header" id="card-header">
-                    <div class="card-body text-center" id="brewery-results">
-
-                    </div>
+                <div class="card-header">
+                    <div class="card-body text-center" id="brewery-results"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</span>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/indexhandlebars.js"></script>
