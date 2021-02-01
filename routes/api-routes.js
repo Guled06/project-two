@@ -63,12 +63,29 @@ module.exports = function(app) {
           name: req.body.name,
           location: req.body.location,
           phone: req.body.phone,
-          latitude: req.body.latitude,
-          longitude: req.body.longitude
+          website: req.body.website
+          // latitude: req.body.latitude,
+          // longitude: req.body.longitude
         }
-      }).then(data => {
-        res.json(data);
-      });
+      })
+        .then(data => {
+          const favorite_id = (data[0].dataValues.id);  // eslint-disable-line
+
+          db.UserFavorite.findOrCreate({
+            where: {
+              favorite_id: favorite_id, // eslint-disable-line
+              user_id: req.user.id  // eslint-disable-line
+            }
+          }).then(() => {
+            return res.end("added favorite to profile");
+          });
+        })
+        // res.end("added brewery to favorites!");
+        .catch(err => {
+          console.log(err);
+          res.status(401).json(err);
+          // ^^^ don't know if this is the correct status code
+        });
     }
   });
 
@@ -88,50 +105,17 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/api/favorite", (req, res) => {
-    // check if exists in database before creating!
-    // if it does, use that id
-    // if not, creat a new one, then use that one
-    console.log(req.body);
-    db.Favorite.create({
-      name: req.body.name,
-      location: req.body.location,
-      phone: req.body.phone,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude
-    })
-      .then(() => {
-        res.end("added brewery to favorites!");
-      })
-      .catch(err => {
-        res.status(401).json(err);
-        // ^^^ don't know if this is the correct status code
-      });
-  });
-
-  // hook up to favorite button press! will need to add a condition for if they're logged in
-  app.post("/api/user_favorite", (req, res) => {
-    console.log(req.body);
-    db.UserFavorite.create({
-      favorite_id: req.body.favorite_id,    // eslint-disable-line
-      //   // user_id: req.user.id           //what we'll use once integrated with front-end
-      user_id: req.body.user_id       // eslint-disable-line
-    }).then(() => {
-      res.end("added favorite to profile");
-    });
-  });
   // ^^^ end of test
   // =========================================================
-  app.post("/api/user_favorite/view", (req, res) => {
+  app.get("/api/user_favorite/view", (req, res) => {
     db.User.findAll({
       attributes: ["id", "email", "createdAt", "updatedAt"],
       where: {
         // id: req.user.id   // what we'll use once integrated with front-end
-        id: req.body.id
+        id: req.user.id
       },
       include: db.Favorite
     }).then(data => {
-      delete data[0].password;
       res.json(data);
     });
   });
