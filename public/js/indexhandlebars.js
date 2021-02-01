@@ -1,15 +1,17 @@
-function breweryInfo() {
-  const queryURL = "https://api.openbrewerydb.org/breweries?by_city=san_diego";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(response => {
-    console.log(response);
+$(document).ready(() => {
+  function breweryInfo() {
+    const queryURL =
+      "https://api.openbrewerydb.org/breweries?by_city=san_diego";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(response => {
+      console.log(response);
 
-    const $brewerylist = $("#brewery-results");
+      const $brewerylist = $("#brewery-results");
 
-    for (let i = 0; i < response.length; i++) {
-      $brewerylist.append(`<h1> ${response[i].name} <button
+      for (let i = 0; i < response.length; i++) {
+        $brewerylist.append(`<h1 id="result-name${i}"> ${response[i].name} </h1> <button
           class="favorites"
           type="button"
           class="btn btn-warning"
@@ -27,12 +29,34 @@ function breweryInfo() {
             />
           </svg>
         </button></h1>
-          <h4>Address: ${response[i].street}</h4>
-          <h4>Phone: <a href="tel:+${response[i].phone}"> ${response[i].phone}</a></h4>
-          <h4>Website: <a href="${response[i].website_url}"> ${response[i].website_url}</a></h4>
-          <hr>`);
-    }
-  });
-}
+          <h4 id="result-location${i}">Address: ${response[i].street}</h4>
+          <h4 id="result-phone${i}">Phone: <a href="tel:+${response[i].phone}"> ${response[i].phone}</a></h4>
+          <h4 id="result-website">Website: <a href="${response[i].website_url}"> ${response[i].website_url}</a></h4>
+          <hr id="result-end">`);
+      }
+    });
+  }
 
-breweryInfo();
+  breweryInfo();
+
+  $("#brewery-results").on("click", "button.favorites", () => {
+    console.log("connected");
+    const name = $(this).prev().text;
+    // $(this).parent().
+    //   .nextUntil($(".result-end"))
+    //   .text();
+    //   .nextUntil(".result-name")
+    //   .text()
+    // .trim();
+    // const loc = this.nextUntil(".result-location").text();
+    // // .val()
+    // // .trim();
+    // const phone = this.$(".result-phone").text();
+    // // .val()
+    // // .trim();
+    // const website = this.$(".result-website").text();
+    // .trim();
+
+    console.log(name);
+  });
+});
