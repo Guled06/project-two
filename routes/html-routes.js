@@ -15,11 +15,11 @@ module.exports = function(app) {
     if (req.user) {
       return res.redirect("/my-profile");
     }
-    res.render("login");
+    res.render("login", { layout: false });
   });
 
   app.get("/signup", (req, res) => {
-    return res.render("signup");
+    return res.render("signup", { layout: false });
   });
 
   app.get("/index", (req, res) => {
