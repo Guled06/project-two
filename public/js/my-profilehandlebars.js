@@ -9,7 +9,7 @@ $(document).ready(() => {
       const $brewerylist = $("#favorite-breweries");
       //   renderArr = breweries;
       for (let i = 0; i < breweries.length; i++) {
-        $brewerylist.append(`<h1> ${breweries[i].name} <button
+        $brewerylist.prepend(`<h1> ${breweries[i].name} <button
 
 
       

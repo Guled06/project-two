@@ -81,7 +81,7 @@ module.exports = function(app) {
             // if (res.rowsAffected() === 0) {
             //   return res.end("already in favorites!");
             // }
-            return res.end("added favorite to profile");
+            return res.end("Added Favorite to Profile");
           });
         })
         // res.end("added brewery to favorites!");
@@ -91,7 +91,7 @@ module.exports = function(app) {
           // ^^^ don't know if this is the correct status code
         });
     } else {
-      return res.end("please login/sign up to save brewery favorites");
+      return res.end("Please login/sign up to save brewery favorites");
     }
   });
 
