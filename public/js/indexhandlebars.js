@@ -60,7 +60,7 @@ $(document).ready(() => {
       data: { name: name, location: loc, phone: phone, website: website }
     })
       .then(data => {
-        console.log(data);
+        alert(data);
       })
       .fail(err => {
         console.log(err);

@@ -76,7 +76,11 @@ module.exports = function(app) {
               favorite_id: favorite_id, // eslint-disable-line
               user_id: req.user.id  // eslint-disable-line
             }
+            // code that checks if a row was added, then says "brewery already in favorites" if not
           }).then(() => {
+            // if (res.rowsAffected() === 0) {
+            //   return res.end("already in favorites!");
+            // }
             return res.end("added favorite to profile");
           });
         })
@@ -86,6 +90,8 @@ module.exports = function(app) {
           res.status(401).json(err);
           // ^^^ don't know if this is the correct status code
         });
+    } else {
+      return res.end("please login/sign up to save brewery favorites");
     }
   });
 
@@ -108,15 +114,16 @@ module.exports = function(app) {
   // ^^^ end of test
   // =========================================================
   app.get("/api/user_favorite/view", (req, res) => {
+    // app.post("/api/user_favorite/view", (req, res) => {          // dev for postman testing
     db.User.findAll({
       attributes: ["id", "email", "createdAt", "updatedAt"],
       where: {
-        // id: req.user.id   // what we'll use once integrated with front-end
         id: req.user.id
+        // id: req.body.id                // dev for postman testing
       },
       include: db.Favorite
     }).then(data => {
-      res.json(data);
+      res.json(data[0].Favorites);
     });
   });
 
@@ -129,8 +136,8 @@ module.exports = function(app) {
         // params could be user input via submit button, correct?
         user_id: req.user.id // eslint-disable-line
       }
-    }).then(newFav => {
-      res.json(newFav);
+    }).then(() => {
+      res.end("brewery deleted from favorites");
     });
   });
 };
