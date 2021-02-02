@@ -1,7 +1,11 @@
 # The Brew Budz
+
 ### "It takes a village to finish a cup." -Guled
+
 ### "Many hands make light work- after all, these kegs aren't going to tip over and pour themselves." -Anzel 
+
 ### "Save Water, Drink Beer." -Roman
+
 ### Beer Street 
 #### "Beer, happy Product of our Isle 
 #### can sinewy Strength impart, 
@@ -15,9 +19,10 @@
 #### And warms each English generous Breast
 #### With Liberty and Love."
 
-## Sequelize Passport Example
+## Come one, come all!
 
-Use this as a starter for Project 2. Includes configuration for Travis CI, and ESLint. Provides a example login, signup and user pages which should be replaced with implementation for your app. Be sure to read the instructions below for deployment on Heroku and running the app locally.
+The Brew Budz is the newest way for beer lovers to discover the best breweries San Diego has to offer!  Search "San Diego" for a complete list of breweries in the San Diego area or, if you're looking for a specific spot, simply search the name! 
+
 
 ## Deployment
 
@@ -33,3 +38,5 @@ Add a `SERVER_SECRET` to the Heroku config for the app. (See [Configuration and 
   SERVER_SECRET = <your_secret_for_session_signing>
   ```
 - Run `npm run watch` to start development server using nodemon.
+
+## 
