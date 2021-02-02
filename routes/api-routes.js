@@ -129,7 +129,8 @@ module.exports = function(app) {
 
   // app.destroy TEST WORK
   // ===============================
-  app.delete("api/favorites:id", (req, res) => {
+  app.delete("/api/favorites/:id", (req, res) => {
+    console.log(req.params.id, "deleting");
     db.UserFavorite.destroy({
       where: {
         favorite_id: req.params.id, // eslint-disable-line 
