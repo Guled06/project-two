@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "the-brew-budz",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,6 +10,12 @@
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
+  "contributers": [
+    "Anzel Capparelli (https://github.com/anzelcapparelli)", 
+    "Roman Rangel (https://github.com/romanrangel)", 
+    "Guled Ahmed (https://github.com/Guled06)", 
+    "Shane O'Connell (https://github.com/shaneocon)"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
