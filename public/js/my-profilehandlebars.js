@@ -2,7 +2,7 @@ $(document).ready(() => {
   //   let renderArr;
   function breweryInfo() {
     $.ajax({
-      url: "api/user_favorite/view",
+      url: "/api/user_favorite/view",
       method: "GET"
     }).then(breweries => {
       console.log(breweries);
