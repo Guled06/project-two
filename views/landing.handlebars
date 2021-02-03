@@ -12,13 +12,8 @@
             background-image: url("/images/landingimg.jpg");
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: cover;
-            background-attachment: fixed;
             background-position: center;
-        }
-
-        h1 {
-            font-family: cursive;
+            background-size: cover;
         }
 
         #landingjumbotron {
@@ -26,24 +21,54 @@
             text-align: center;
         }
 
-        .card {
-            background-color: rgba(8, 8, 8, 0.6);
-        }
-
-        p {
-            color: rgb(255, 208, 0);
-            
-            font-family: serif;
+        h1 {
+            font-family: cursive;
             text-align: center;
         }
 
         h2 {
             font-family: cursive;
+            text-align: center;
+        }
+
+        p {
+            color: rgb(255, 208, 0);
+            font-family: serif;
+            text-align: center;
         }
 
         li {
             padding-left: 5px;
             padding-right: 5px;
+        }
+
+        .navbar {
+            left: 0%;
+            right: 0%;
+        }
+
+        .card {
+            background-color: rgba(8, 8, 8, 0.6);
+            background-size: cover;
+        }
+
+        @media screen and (max-width: 200px) {
+
+            li {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .navbar {
+                left: 0%;
+                right: 0%;
+            }
+
+            #landingjumbotron {
+                background: transparent;
+                text-align: center;
+            }
+
         }
     </style>
 </head>
@@ -65,9 +90,9 @@
     </nav>
 
     <div class="jumbotron" id="landingjumbotron">
-        <h1 class="display-2 text-dark">
-            <span class="badge badge-pill badge-warning">The Brew Budz</span>
-            <span class="badge badge-pill badge-dark" style="color: rgb(255, 208, 0)">BB</span>
+        <h1 class="text-dark">
+            <span class="badge badge-pill badge-dark" style="color: rgb(255, 208, 0)">The Brew Budz</span> <span
+                class="badge badge-pill badge-warning">BB</span>
         </h1>
         <br />
         <h2>
