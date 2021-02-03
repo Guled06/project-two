@@ -25,12 +25,12 @@ $(document).ready(() => {
       
     </button></h1>
 
-      <h4>Address: <a href="https://www.google.com/maps/place/${breweries[i].name} /@${breweries[i].latitude} ,${breweries[i].longitude}/"> ${breweries[i].location}</a></h4>
+      <h4>Address: <a href="https://www.google.com/maps/place/${breweries[i].name} /@${breweries[i].latitude} ,${breweries[i].longitude}/" target="_blank"> ${breweries[i].location}</a></h4>
       <!-- <h4>Address2: <a href="http://maps.google.com/maps?q=${breweries[i].location}">${breweries[i].location}</a></h4> alternate route for getting to google maps (using data in our db); will search local -->
       <!-- <h4>City: ${breweries[i].city}</h4> -->
       <!-- <h4> State: ${breweries[i].state}</h4> -->
       <h4>Phone: <a href="tel:+${breweries[i].phone}"> ${breweries[i].phone}</a></h4>
-      <h4>Website: <a href="${breweries[i].website}"> ${breweries[i].website}</a></h4>
+      <h4>Website: <a href="${breweries[i].website}" target="_blank"> ${breweries[i].website}</a></h4>
       <hr>`);
       }
     });
