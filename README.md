@@ -1,5 +1,7 @@
 # The Brew Budz
 
+## <a href="https://thebrewbudz.herokuapp.com/landing" target="_blank">Brew Budz on Heroku</a>
+
 ### "It takes a village to finish a cup." -Guled
 
 ### "Many hands make light work- after all, these kegs aren't going to tip over and pour themselves." -Anzel 
@@ -23,6 +25,23 @@
 
 The Brew Budz is the newest way for beer lovers to discover the best breweries San Diego has to offer!  Search "San Diego" for a complete list of breweries in the San Diego area or, if you're looking for a specific spot, simply search the name! 
 
+## Screenshots of application pages
+
+### Landing Page
+![Landing Page](./public/images/bb-landing.jpg)
+
+### Login Page
+![Login Page](./public/images/bb-login.jpg)
+
+### Signup Page
+![Login Page](./public/images/bb-signup.jpg)
+
+### Beer Results Page
+![Login Page](./public/images/bb-displayresults.jpg)
+
+## GIF of Favorite Functionality
+### Favorites may only be added/deleted if logged in/signed up. 
+![Alt Text](./public/images/favorite-delete.gif)
 
 ## Deployment
 
