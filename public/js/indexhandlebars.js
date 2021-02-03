@@ -36,11 +36,11 @@ $(document).ready(() => {
           </svg>
         </button></h1>
 
-          <h4>Address: <a href="https://www.google.com/maps/place/${breweries[i].name} /@${breweries[i].latitude} ,${breweries[i].longitude}/"> ${breweries[i].street}</a></h4>
+          <h4>Address: <a href="https://www.google.com/maps/place/${breweries[i].name} /@${breweries[i].latitude} ,${breweries[i].longitude}/" target="_blank"> ${breweries[i].street}</a></h4>
           <h4>City: ${breweries[i].city}</h4>
           <h4> State: ${breweries[i].state}</h4>
           <h4>Phone: <a href="tel:+${breweries[i].phone}"> ${breweries[i].phone}</a></h4>
-          <h4>Website: <a href="${breweries[i].website_url}"> ${breweries[i].website_url}</a></h4>
+          <h4>Website: <a href="${breweries[i].website_url}" target="_blank"> ${breweries[i].website_url}</a></h4>
           <hr>`);
       }
     });
